@@ -7,22 +7,25 @@ public class MostNumb {
 		System.out.println(mostNumb(nums));
 
 	}
+	// find the most number in a array list
+	//using hashmap, complexity O(n), space O(n)
 	public static Integer mostNumb(int[] nums)
 	{
 		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
-		Integer max = 0;
+		Integer maxcount = 0;
 		Integer mostNumber = nums[0];
 		for(int i = 0; i < nums.length; i++)
 		{
 			Integer num = nums[i];
-			Integer oldcount = map.get(num);
+			Integer curcount = map.get(num);
 			
-			if(oldcount!=null)
+			if(curcount!=null)
 			{
-				map.replace(num, oldcount+=1);
-				if(max<oldcount+1)
+				map.replace(num, curcount+=1);//if same number appears counter it up
+				
+				if(maxcount<curcount+1) // if maxcount is less than current counter replace it
 				{
-					max = oldcount+1;
+					maxcount = curcount+1;
 					mostNumber = num;
 				}
 			}else
