@@ -36,7 +36,7 @@ public class QueueReconstructionHeight {
         if(people.length < 2) return people;
         Arrays.sort(people,new Comparator<int[]>(){
             @Override
-            public int compare(int[] o1, int[] o2){
+            public int compare(int[] o1, int[] o2){ // agrs[1] - args[0] decreasing order, 0-1 increasing order
                 return o1[0]!=o2[0]?-o1[0]+o2[0]:o1[1]-o2[1];
             }
         });
